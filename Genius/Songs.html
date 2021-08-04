@@ -181,7 +181,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Errors.html#check_status-class_method" title="Genius::Errors.check_status (method)">check_status</a></span>, <span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -263,6 +263,7 @@
       <pre class="lines">
 
 
+57
 58
 59
 60
@@ -271,11 +272,10 @@
 63
 64
 65
-66
-67</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_lyrics'>get_lyrics</span><span class='lparen'>(</span><span class='id identifier rubyid_song_id'>song_id</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>song_id should be not blank!</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_song_id'>song_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -306,7 +306,7 @@
     
 <p><code>Genius::Songs.songs</code>     -&gt; value</p>
 
-<p>This method provides info about song by its id. It is not the same with <code>Genius::Search.search</code> method, because it modify a <code>JSON</code> only for concrete song id, not for whole search database, which is returned in <code>Genius::Search.search</code></p>
+<p>This method provides info about song by its id. It is not the same with <code>Genius::Search.search</code> method, because it modify a <code>JSON</code> only for concrete song id, not for whole search database, which is returned in <code>Genius::Search.search</code>.</p>
 
 
   </div>
@@ -373,7 +373,7 @@
       
         &mdash;
         <div class='inline'>
-<p>the error message if <code>lyrics</code> param is <code>true</code></p>
+<p>the error message if <code>lyrics</code> param is <code>true</code>.</p>
 </div>
       
     </li>
@@ -387,7 +387,7 @@
       
         &mdash;
         <div class='inline'>
-<p>if <code>lyrics</code> param is <code>false</code></p>
+<p>if <code>lyrics</code> param is <code>false</code>.</p>
 </div>
       
     </li>
@@ -401,7 +401,7 @@
       
         &mdash;
         <div class='inline'>
-<p>if CloudflareError, TokenError, TokenMissing exception raised</p>
+<p>if CloudflareError, TokenError exception raised.</p>
 </div>
       
     </li>
@@ -414,6 +414,7 @@
       <pre class="lines">
 
 
+22
 23
 24
 25
@@ -440,11 +441,10 @@
 46
 47
 48
-49
-50</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_songs'>songs</span><span class='lparen'>(</span><span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>song_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>combine:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -484,7 +484,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug  4 13:35:17 2021 by
+  Generated on Wed Aug  4 20:39:30 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>
