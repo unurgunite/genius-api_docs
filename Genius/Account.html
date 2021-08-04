@@ -166,24 +166,7 @@
 
 <p>This method is a standard Genius API <a href="https://docs.genius.com/#search-h2">request</a> to get account info. Output <code>JSON</code> is translated to Hash structure to make it easy to work with account fields. You can also access to some fields of output hash with <code>field</code> param, which is <code>nil</code> by default. For e.g.,</p>
 
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;Foo Bar&quot;
-</span></code></pre>
-
 <p>Due to the nesting of a hash there could be multiple keys with the same name, so method will return an array of values, but if multiple values are the same, method will return value only once, without storing it in array. For e.g.,</p>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [100033, 234411]
-</span><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>url</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;https://genius.com/&quot;
-</span></code></pre>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yuiaYqbncErCVwItjQxFspNWUZLhGpXrPbkvgbgHSEKJRAlToamzMfdOeDB</span><span class='tstring_end'>&quot;</span></span>
-<span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span> <span class='comment'>#=&gt; {&quot;meta&quot;=&gt;{&quot;status&quot;=&gt;200}, &quot;response&quot;=&gt;{&quot;user&quot;=&gt;{...}}}
-</span></code></pre>
 
 <p>There is a <code>prettify</code> parameter to prettify output hash. It could be called also with <code>field</code> param, for e.g.:</p>
 
@@ -205,7 +188,23 @@
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;Foo Bar&quot;</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [100033, 234411]
+</span><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='lparen'>(</span><span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>url</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;https://genius.com/&quot;</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yuiaYqbncErCVwItjQxFspNWUZLhGpXrPbkvgbgHSEKJRAlToamzMfdOeDB</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Account (module)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span> <span class='comment'>#=&gt; {&quot;meta&quot;=&gt;{&quot;status&quot;=&gt;200}, &quot;response&quot;=&gt;{&quot;user&quot;=&gt;{...}}}</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -305,7 +304,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug  4 12:47:04 2021 by
+  Generated on Wed Aug  4 12:50:41 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>

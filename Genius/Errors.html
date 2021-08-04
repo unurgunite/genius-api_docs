@@ -93,9 +93,20 @@
     
 <p><code>Genius::Errors</code> module includes custom exception classes and methods to handle all errors during requests to <a href="https://api.genius.com">api.genius.com</a> or during the work with library methods. All exception classes, but <code>TokenMissing</code> class, requires two fields - <code>msg</code> and <code>exception_type</code> (not <code>nil</code> by default): <code>TokenMissing</code> requires three fields - <code>msg</code>, <code>exception_type</code>, which are not <code>nil</code>, and <code>method_name</code>, which is <code>nil</code> by default.</p>
 
-<p><strong>Examples:</strong></p>
+<p>Exception classes fields provide custom message and error types (<code>connection_error</code>, <code>token_error</code>, <code>auth_required</code>, etc.)</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span>
+<p>There will be a standard output of each exception if there will be no params provided</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span>
   <span class='kw'>module</span> <span class='const'>Foo</span>
     <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'>Errors</span>
     <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
@@ -107,38 +118,26 @@
 </span>      <span class='kw'>end</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span>
-</code></pre>
-
-<p>Exception classes fields provide custom message and error types (<code>connection_error</code>, <code>token_error</code>, <code>auth_required</code>, etc.)</p>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>begin</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='kw'>begin</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Errors/TokenError.html#initialize-instance_method" title="Genius::Errors::TokenError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>msg:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Message</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>error_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error_type</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>        <span class='comment'>#=&gt; Message
 </span>  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span> <span class='comment'>#=&gt; error_type
-</span><span class='kw'>end</span>
-</code></pre>
-
-<p>There will be a standard output of each exception if there will be no params provided</p>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>begin</span>
+</span><span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='kw'>begin</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span>
 <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>        <span class='comment'>#=&gt; Invalid token!....
 </span>  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span> <span class='comment'>#=&gt; token_error
-</span><span class='kw'>end</span>
-</code></pre>
-
-
+</span><span class='kw'>end</span></code></pre>
+    
   </div>
-</div>
-<div class="tags">
-  
+
 
 </div><h2>Defined Under Namespace</h2>
 <p class="children">
@@ -332,18 +331,18 @@
       <pre class="lines">
 
 
+205
+206
+207
+208
 209
 210
 211
 212
-213
-214
-215
-216
-217</pre>
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check_status'>check_status</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>64</span>
@@ -373,33 +372,34 @@
     
 <p><tt>Genius::Errors.error_handle(token)</tt>          -&gt; true or false</p>
 
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>begin</span>
-  <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
-<span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='const'>TokenError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span>
-<span class='kw'>end</span>
-</code></pre>
-
 <p>This method is necessary to handle all errors during validation. <code>token</code> param is not optional and it is needed to validate token itself. <code>method_name</code> param optional and it to passes method name in error exception for dynamical error message, and because of unimportance this method is <code>nil</code> by default. If you are ready to pass method, it will look like this:</p>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>begin</span>
-  <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span>
-<span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='const'>TokenMissing</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span>
-<span class='kw'>end</span>
-</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='kw'>begin</span>
+  <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='const'>TokenError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='kw'>begin</span>
+  <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='const'>TokenMissing</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -471,14 +471,14 @@
       <pre class="lines">
 
 
-244
-245
-246
-247
-248</pre>
+240
+241
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 240</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>method_name:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenMissing.html" title="Genius::Errors::TokenMissing (class)">TokenMissing</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Errors/TokenMissing.html#initialize-instance_method" title="Genius::Errors::TokenMissing#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -495,7 +495,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug  4 12:47:04 2021 by
+  Generated on Wed Aug  4 12:50:41 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>

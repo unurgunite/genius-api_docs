@@ -158,23 +158,24 @@
 
 <p>This method is a standard Genius API <a href="https://docs.genius.com/#search-h2">method</a> and it is needed to send a request to the server and get information about artists, tracks and everything else that may be inside the response body. According to <a href="https://docs.genius.com/#search-h2">docs.genius.com/#search-h2</a>, token is required to be in response, but you can use this method without use of it! =)</p>
 
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Search (module)">Search</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>query:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ariana Grande</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; {..., &quot;full_title&quot;=&gt;&quot; thank u, next by Ariana Grande&quot;, ...}
-</span></code></pre>
-
 <p>Also, you can use this method with <code>search_by</code> param, which is needed to search interested data through returned <code>JSON</code>. It uses <code>deep_find</code> extension under the hood.</p>
-
-<p><strong>Examples:</strong></p>
-
-<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Search (module)">Search</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>query:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bones</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>search_by:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>title</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [&quot;Dirt&quot;, &quot;HDMI&quot;, &quot;RestInPeace&quot;, &quot;Sodium&quot;]
-</span></code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Search (module)">Search</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>query:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ariana Grande</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; {..., &quot;full_title&quot;=&gt;&quot; thank u, next by Ariana Grande&quot;, ...}</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Genius::Search (module)">Search</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>query:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bones</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>search_by:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>title</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [&quot;Dirt&quot;, &quot;HDMI&quot;, &quot;RestInPeace&quot;, &quot;Sodium&quot;]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -323,7 +324,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug  4 12:47:04 2021 by
+  Generated on Wed Aug  4 12:50:41 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>
