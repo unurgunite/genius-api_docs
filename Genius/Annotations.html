@@ -180,13 +180,14 @@
     
 <p><code>Genius::Annotations.annotations</code>              -&gt; true or false</p>
 
-<p>Genius::Annotations.annotations method GET /annotations/:id Data for a specific annotation.</p>
+<p><tt>GET /annotations/:id</tt><br> Data for a specific annotation.</p>
 
-<p>POST /annotations Requires scope: create_annotation</p>
+<p><tt>POST /annotations</tt><br> Requires scope: <em>create_annotation</em></p>
 
 <p>Creates a new annotation on a public web page. The returned value will be the new annotation object, in the same form as would be returned by GET /annotation/:id with the new annotation&#39;s ID. Requires JSON payload. Example usage</p>
 
-<pre class="code ruby"><code class="ruby">Genius::Annotations.annotation(id:, http_verb: &quot;post&quot;, markdown: &quot;Foo **Bar**&quot;, raw_annotatable_url: &quot;https://example.com&quot;)
+<pre class="code ruby"><code class="ruby">Genius::Annotations.annotation(id:, http_verb: &quot;post&quot;, markdown: &quot;Foo **Bar**&quot;,
+raw_annotatable_url: &quot;https://example.com&quot;)
 </code></pre>
 
 <p>will reproduce JSON object via <code>Genius::Annotations.post_payload</code> method. According to last example it will return</p>
@@ -213,17 +214,50 @@
 <span class='rbrace'>}</span>
 </code></pre>
 
-<p>There is a full list of possible params: &lt;ul&gt; &lt;li&gt;annotation &lt;ul&gt; &lt;li&gt;body &lt;ul&gt; &lt;li&gt;markdown - The text for the note, in &lt;a href=“<a href="https://help.github.com/articles/github-flavored-markdown/">markdown</a">help.github.com/articles/github-flavored-markdown/”>markdown</a</a>&gt; <em>(Required)</em> &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;referent &lt;ul&gt; &lt;li&gt;raw_annotatable_url - The original URL of the page <em>(Required)</em>&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;fragment - The highlighted fragment <em>(Required)</em>&lt;/li&gt; &lt;/ul&gt; &lt;li&gt;context_for_display &lt;ul&gt; &lt;li&gt;before_html - The HTML before the highlighted fragment (prefer up to 200 characters) &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;after_html - The HTML after the highlighted fragment (prefer up to 200 characters)&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;web_page <em>At least one required</em> &lt;ul&gt; &lt;li&gt;canonical_url - The href property of the <code> &amp;lt;link rel=&quot;canonical&quot;&amp;gt; </code> tag on the page. Including it will help make sure newly created annotation appear on the correct page &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;og_url - The content property of the <code> &amp;lt;meta property=&quot;og:url&quot;&amp;gt; </code> tag on the page. Including it will help make sure newly created annotation appear on the correct page &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;title - The title of the page&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt;</p>
+<p>There is a full list of possible params:</p>
+<ul><li>
+<p>annotation</p>
 
-<p>PUT /annotations/:id Requires scope: manage_annotation Updates an annotation created by the authenticated user. Accepts the same parameters as POST /annotation above.</p>
+<pre class="code ruby"><code class="ruby">* body
+    * markdown - The text for the note, in
+      [markdown](https://help.github.com/articles/github-flavored-markdown/) _(Required)_
+</code></pre>
+</li><li>
+<p>referent</p>
 
-<p>DELETE /annotations/:id Requires scope: manage_annotation Deletes an annotation created by the authenticated user.</p>
+<pre class="code ruby"><code class="ruby">* raw_annotatable_url - The original URL of the page _(Required)_
 
-<p>PUT /annotations/:id/upvote Requires scope: vote Votes positively for the annotation on behalf of the authenticated user.</p>
+* fragment - The highlighted fragment _(Required)_
+</code></pre>
+</li><li>
+<p>context_for_display</p>
 
-<p>PUT /annotations/:id/downvote Requires scope: vote Votes negatively for the annotation on behalf of the authenticated user.</p>
+<pre class="code ruby"><code class="ruby">* before_html - The HTML before the highlighted fragment (prefer up to 200 characters)
 
-<p>PUT /annotations/:id/unvote Requires scope: vote Removes the authenticated user&#39;s vote (up or down) for the annotation.</p>
+* after_html - The HTML after the highlighted fragment (prefer up to 200 characters)
+</code></pre>
+</li><li>
+<p>web_page <em>At least one required</em></p>
+
+<pre class="code ruby"><code class="ruby">* canonical_url - The href property of the +&lt;link rel=&quot;canonical&quot;&gt;+ tag on the page. Including it will
+  help make sure newly created annotation appear on the correct page
+
+* og_url - The content property of the tag on the page. Including it will help make sure newly created
+  annotation appear on the correct page
+
+* title - The title of the page
+</code></pre>
+</li></ul>
+
+<p><tt>PUT /annotations/:id</tt><br> Requires scope: <em>manage_annotation</em><br> Updates an annotation created by the authenticated user. Accepts the same parameters as POST /annotation above.</p>
+
+<p><tt>DELETE /annotations/:id</tt><br> Requires scope: <em>manage_annotation</em><br> Deletes an annotation created by the authenticated user.</p>
+
+<p><tt>PUT /annotations/:id/upvote</tt><br> Requires scope: <em>vote</em><br> Votes positively for the annotation on behalf of the authenticated user.</p>
+
+<p><tt>PUT /annotations/:id/downvote</tt><br> Requires scope: <em>vote</em><br> Votes negatively for the annotation on behalf of the authenticated user.</p>
+
+<p><tt>PUT /annotations/:id/unvote</tt><br> Requires scope: <em>vote</em><br> Removes the authenticated user&#39;s vote (up or down) for the annotation.</p>
 
 
   </div>
@@ -482,7 +516,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>The href property of the <code>&amp;lt;link rel=&quot;canonical&quot;&amp;gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
+<p>The href property of the <code>&lt;link rel=&quot;canonical&quot;&gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
 </div>
           
         </li>
@@ -495,7 +529,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>The content property of the <code>&amp;lt;meta property=&quot;og:url&quot;&amp;gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
+<p>The content property of the <code>&lt;meta property=&quot;og:url&quot;&gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
 </div>
           
         </li>
@@ -587,38 +621,38 @@
       <pre class="lines">
 
 
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
 175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203</pre>
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_annotations'>annotations</span><span class='lparen'>(</span><span class='label'>id:</span><span class='comma'>,</span> <span class='label'>action:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>http_verb:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -828,31 +862,31 @@
       <pre class="lines">
 
 
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241</pre>
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post_payload'>post_payload</span><span class='lparen'>(</span><span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='lbrace'>{</span>
@@ -886,7 +920,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug  4 22:51:21 2021 by
+  Generated on Thu Aug  5 15:31:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>
