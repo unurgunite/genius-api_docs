@@ -356,6 +356,38 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>CloudflareError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if Cloudflare is not responding.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>TokenError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if <code>token</code> is invalid.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -363,13 +395,13 @@
       <pre class="lines">
 
 
-33
-34
-35
-36</pre>
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_authorized?'>authorized?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>method_name:</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
@@ -434,6 +466,38 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>CloudflareError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if Cloudflare is not responding.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>TokenError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if <code>token</code> is invalid.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
   <p class="tag_title">See Also:</p>
   <ul class="see">
@@ -448,14 +512,14 @@
       <pre class="lines">
 
 
-22
-23
 24
 25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login='>login=</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Genius.html" title="Genius (module)">Genius</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
@@ -508,12 +572,12 @@
       <pre class="lines">
 
 
-42
-43
-44</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/authorization.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logout!'>logout!</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -528,7 +592,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  5 17:51:21 2021 by
+  Generated on Thu Aug  5 17:58:05 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.1).
 </div>
