@@ -1,2 +1,4 @@
 # genius-api_docs
-Documentation for genius-api gem
+Source tree of [genius-api gem](https://github.com/unurgunite/genius-api) documentation 
+
+Online page: https://unurgunite.github.io/genius-api_docs/
