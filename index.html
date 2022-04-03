@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -58,32 +58,118 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-Genius-3A-3AApi">Genius::Api</h1>
+<h1 id="label-Genius+API">Genius API</h1>
 
-<p>Welcome to your new gem! In this directory, you&#39;ll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file <code>lib/genius/api</code>. To experiment with that code, run <code>bin/console</code> for an interactive prompt.</p>
+<p><img src="https://repobeats.axiom.co/api/embed/0163add5bf43300944ef69ad09cf68f1a0176bf6.svg"></p>
 
-<p>TODO: Delete this and the text above, and describe your gem</p>
+<p>Welcome to the unofficial <a href="https://docs.genius.com">Genius API</a> representation. This repo reflects all of the service API and much more!</p>
+
+<h2 id="label-Documentation+content">Documentation content</h2>
+<ol><li>
+<p><a href="[https://github.com/unurgunite/genius-api#overview">Overview</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#installation">Installation</a>]</p>
+<ol><li>
+<p><a href="[https://github.com/unurgunite/genius-api#build-from-source">Build from source</a>]</p>
+<ol><li>
+<p><a href="[https://github.com/unurgunite/genius-api#manual-installation">Manual installation</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#automatic-installation">Automatic installation</a>]</p>
+</li></ol>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#build-via-bundler">Build via bundler</a>]</p>
+</li></ol>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#usage">Usage</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#todo">Todo</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#development">Development</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#requirements">Requirements</a>]</p>
+<ol><li>
+<p><a href="[https://github.com/unurgunite/genius-api#common-usage">Common usage</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#development-purposes">Development purposes</a>]</p>
+</li></ol>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#project-style-guide">Project style guide</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#contributing">Contributing</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#license">License</a>]</p>
+</li><li>
+<p><a href="[https://github.com/unurgunite/genius-api#code-of-conduct">Code of Conduct</a>]</p>
+</li></ol>
+
+<h2 id="label-Overview">Overview</h2>
+
+<p>As noted above, this gem fully represents Genius service API. The projects source tree is pretty simple. All of the resources are stored in theirs separate module, so it does code readability much cleaner.</p>
 
 <h2 id="label-Installation">Installation</h2>
 
-<p>Add this line to your application&#39;s Gemfile:</p>
+<p>Genius API gem is quite simple to use and install</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>genius-api</span><span class='tstring_end'>&#39;</span></span>
+<h3 id="label-Build+from+source">Build from source</h3>
+
+<h4 id="label-Manual+installation">Manual installation</h4>
+
+<p>The manual installation includes installation via command line interface. it is practically no different from what happens during the automatic build of the project:</p>
+
+<pre class="code ruby"><code class="ruby">git clone https://github.com/unurgunite/genius-api.git &amp;&amp; \
+cd ~/genius-api &amp;&amp; \
+bundle install &amp;&amp; \
+gem build genius-api.gemspec &amp;&amp; \
+gem install genius-api-0.1.0.gem
+</code></pre>
+
+<p>Now everything should work fine. Just type <code>irb</code> and <code>require &quot;genius/api&quot;</code> to start working with the library</p>
+
+<h4 id="label-Automatic+installation">Automatic installation</h4>
+
+<p>The automatic installation is simpler but it has at least same steps as manual installation:</p>
+
+<pre class="code ruby"><code class="ruby">git clone https://github.com/unurgunite/genius-api.git &amp;&amp; \
+cd ~/genius-api &amp;&amp; \
+bin/setup
+</code></pre>
+
+<p>If you see <code>irb</code> interface, then everything works fine. The main goal of automatic installation is that you do not need to create your own script to simplify project build and clean up the shell history Add this line to your application&#39;s. Note: you do not need to require projects file after the automatic installation. See <code>bin/setup</code> file for clarity of the statement</p>
+
+<h3 id="label-Build+via+bundler">Build via bundler</h3>
+
+<p>This documentation point is close to those who need to embed the library in their project. Just place this gem to your Gemfile or create it manually via <code>bundle init</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Your Gemfile
+</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>genius-api</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>And then execute:</p>
 
-<pre class="code ruby"><code class="ruby">$ bundle install
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_install'>install</span>
 </code></pre>
 
-<p>Or install it yourself as:</p>
+<p>Or install it yourself for non bundled projects as:</p>
 
-<pre class="code ruby"><code class="ruby">$ gem install genius-api
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_genius'>genius</span><span class='op'>-</span><span class='id identifier rubyid_api'>api</span>
 </code></pre>
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>All docs are available at separate page: <a href="https://unurgunite.github.io/genius-api_docs">unurgunite.github.io/genius-api_docs</a>/</p>
+<p>All docs are available at the separate page: <a href="https://unurgunite.github.io/genius-api_docs">unurgunite.github.io/genius-api_docs</a>/</p>
+
+<h2 id="label-TODO">TODO</h2>
+<ul><li>
+<p>[x] Update <code>README.md</code></p>
+</li><li>
+<p>[ ] Refactor code base</p>
+</li><li>
+<p>[ ] Add tests with RSpec</p>
+</li><li>
+<p>[ ] 100% code coverage with RuboCop</p>
+</li><li>
+<p>[ ] Refactor code according to the style guides</p>
+</li></ul>
 
 <h2 id="label-Development">Development</h2>
 
@@ -91,23 +177,81 @@
 
 <p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and the created tag, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
 
+<h2 id="label-Requirements">Requirements</h2>
+
+<p>This section will show dependencies which are used in the project. This section splits in two other sections — requirements for common use and requirements for the development purposes.</p>
+
+<h3 id="label-Common+use">Common use</h3>
+
+<p>The <code>genius-api</code> gem is built on top of two other gems:</p>
+<ol><li>
+<p><a href="[https://rubygems.org/gems/httparty">HTTParty</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/nokogiri">Nokogiri</a>]</p>
+</li></ol>
+
+<p>The HTTParty gem is used to send requests to the REST client of the <a href="https://api.genius.com">api.genius.com</a>/.</p>
+
+<p>The Nokogiri gem is used to represent XML objects as Ruby structures.</p>
+
+<h3 id="label-Development+purposes">Development purposes</h3>
+
+<p>For the development purposes <code>genius-api</code> gem uses:</p>
+<ol><li>
+<p><a href="[https://rubygems.org/gems/rspec">RSpec</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/rubocop">RuboCop</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/rake">Rake</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/dotenv">Dotenv</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/coderay">Coderay</a>]</p>
+</li><li>
+<p><a href="[https://rubygems.org/gems/yard">YARD</a>]</p>
+</li></ol>
+
+<p>The RSpec gem is used for test which are located in a separate folder under <code>spec</code> name.</p>
+
+<p>The RuboCop gem is used for code formatting.</p>
+
+<p>The Rake gem is used for building tasks as generating documentation.</p>
+
+<p>The Dotenv gem is used for setting variables for test environment (<code>token</code>, for e.g.).</p>
+
+<p>The Coderay gem is used for colorizing Rspec output.</p>
+
+<p>The YARD gem is used for the documentation.</p>
+
+<h2 id="label-Project+style+guide">Project style guide</h2>
+
+<p>To make the code base much cleaner gem has its own style guides. They are defined in a root folder of the gem in a <code>CODESTYLE.md</code> file. Check it for more details.</p>
+
 <h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/unurgunite/genius-api">github.com/unurgunite/genius-api</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/unurgunite/genius-api/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/unurgunite/genius-api">github.com/unurgunite/genius-api</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/unurgunite/genius-api/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>. To contribute you should fork this project and create there new branch:</p>
+
+<pre class="code ruby"><code class="ruby">git clone https://github.com/your-beautiful-username/genius-api.git &amp;&amp; \
+git checkout -b refactor &amp;&amp; \
+git commit -m &quot;Affected new changes&quot; &amp;&amp; \
+git push origin refactor
+</code></pre>
+
+<p>And then make new pull request with additional notes of what you have done. The better the changes are scheduled, the faster the PR will be checked.</p>
 
 <h2 id="label-License">License</h2>
 
-<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/GPL-3.0">GPLv3 License</a>.</p>
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/GPL-3.0">GPLv3 License</a>. The copy of the license is stored in project under the <code>LICENSE.txt</code> file name: <a href="https://github.com/unurgunite/genius-api/blob/master/LICENSE.txt">copy of the License</a></p>
 
 <h2 id="label-Code+of+Conduct">Code of Conduct</h2>
 
-<p>Everyone interacting in the Genius::Api project&#39;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the of conduct[https://github.com/[USERNAME]/genius-api/blob/master/CODE_OF_CONDUCT.md].</p>
+<p>Everyone interacting in the Genius::Api project&#39;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/unurgunite/genius-api/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Aug  5 17:59:59 2021 by
+  Generated on Sun Apr  3 23:46:06 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.1).
+  0.9.27 (ruby-2.7.2).
 </div>
 
     </div>
