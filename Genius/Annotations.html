@@ -562,7 +562,7 @@ raw_annotatable_url: &quot;https://example.com&quot;)
       
         &mdash;
         <div class='inline'>
-<p>if CloudflareError, TokenError exceptions raised.</p>
+<p>if TokenError exceptions raised.</p>
 </div>
       
     </li>
@@ -581,20 +581,6 @@ raw_annotatable_url: &quot;https://example.com&quot;)
         &mdash;
         <div class='inline'>
 <p>if <code>action</code> got incorrect value.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>CloudflareError</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>if Cloudflare is not responding.</p>
 </div>
       
     </li>
@@ -621,6 +607,7 @@ raw_annotatable_url: &quot;https://example.com&quot;)
       <pre class="lines">
 
 
+147
 148
 149
 150
@@ -648,14 +635,13 @@ raw_annotatable_url: &quot;https://example.com&quot;)
 172
 173
 174
-175
-176</pre>
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_annotations'>annotations</span><span class='lparen'>(</span><span class='label'>id:</span><span class='comma'>,</span> <span class='label'>action:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>http_verb:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>only PUT accepts `action` param</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_http_verb'>http_verb</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>put</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_action'>action</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
@@ -862,6 +848,7 @@ raw_annotatable_url: &quot;https://example.com&quot;)
       <pre class="lines">
 
 
+192
 193
 194
 195
@@ -882,11 +869,10 @@ raw_annotatable_url: &quot;https://example.com&quot;)
 210
 211
 212
-213
-214</pre>
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 193</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post_payload'>post_payload</span><span class='lparen'>(</span><span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='lbrace'>{</span>
@@ -920,7 +906,7 @@ raw_annotatable_url: &quot;https://example.com&quot;)
 </div>
 
       <div id="footer">
-  Generated on Mon Apr  4 01:33:55 2022 by
+  Generated on Fri Apr  8 00:40:24 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

@@ -267,6 +267,8 @@
       <pre class="lines">
 
 
+59
+60
 61
 62
 63
@@ -274,12 +276,10 @@
 65
 66
 67
-68
-69
-70</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_lyrics'>get_lyrics</span><span class='lparen'>(</span><span class='id identifier rubyid_song_id'>song_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`song_id` should be not blank!</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_song_id'>song_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -405,7 +405,7 @@
       
         &mdash;
         <div class='inline'>
-<p>if CloudflareError, TokenError exception raised.</p>
+<p>if TokenError exception raised.</p>
 </div>
       
     </li>
@@ -445,20 +445,6 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Errors/CloudflareError.html" title="Genius::Errors::CloudflareError (class)">CloudflareError</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>if Cloudflare is not responding.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-      
         <span class='type'>(<tt><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></tt>)</span>
       
       
@@ -478,6 +464,7 @@
       <pre class="lines">
 
 
+25
 26
 27
 28
@@ -503,15 +490,13 @@
 48
 49
 50
-51
-52
-53</pre>
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_songs'>songs</span><span class='lparen'>(</span><span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>song_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>combine:</span> <span class='kw'>false</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/songs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_song_id'>song_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -521,7 +506,8 @@
       <span class='id identifier rubyid_output_html'>output_html</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>HTML</span><span class='lparen'>(</span><span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://genius.com/songs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_song_id'>song_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/PageNotFound.html" title="Genius::Errors::PageNotFound (class)">PageNotFound</a></span></span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="Errors/PageNotFound.html" title="Genius::Errors::PageNotFound (class)">PageNotFound</a></span></span><span class='period'>.</span><span class='id identifier rubyid_page_not_found?'><span class='object_link'><a href="Errors/PageNotFound.html#page_not_found%3F-class_method" title="Genius::Errors::PageNotFound.page_not_found? (method)">page_not_found?</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_output_html'>output_html</span><span class='rparen'>)</span>
 
-      <span class='id identifier rubyid_unformed_json'>unformed_json</span> <span class='op'>=</span> <span class='id identifier rubyid_output_html'>output_html</span><span class='period'>.</span><span class='id identifier rubyid_css'>css</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>script</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>21</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>window\.__PRELOADED_STATE__\s=\sJSON.parse\(&#39;(?&lt;json&gt;(.+?))&#39;\);</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_unformed_json'>unformed_json</span> <span class='op'>=</span> <span class='id identifier rubyid_output_html'>output_html</span><span class='period'>.</span><span class='id identifier rubyid_css'>css</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>script</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>21</span><span class='rbracket'>]</span>
+                                 <span class='period'>.</span><span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>window\.__PRELOADED_STATE__\s=\sJSON.parse\(&#39;(?&lt;json&gt;(.+?))&#39;\);</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/LyricsNotFoundError.html" title="Genius::Errors::LyricsNotFoundError (class)">LyricsNotFoundError</a></span></span> <span class='kw'>if</span> <span class='id identifier rubyid_unformed_json'>unformed_json</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
       <span class='id identifier rubyid_formatted_json'>formatted_json</span> <span class='op'>=</span> <span class='id identifier rubyid_unformed_json'>unformed_json</span><span class='lbracket'>[</span><span class='symbol'>:json</span><span class='rbracket'>]</span>
@@ -531,9 +517,7 @@
     <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Errors/LyricsNotFoundError.html" title="Genius::Errors::LyricsNotFoundError (class)">LyricsNotFoundError</a></span></span>
       <span class='kw'>retry</span>
     <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Errors/PageNotFound.html" title="Genius::Errors::PageNotFound (class)">PageNotFound</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-      <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error description: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_msg'>msg</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-      <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Exception type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-      <span class='kw'>return</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error description: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_msg'>msg</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nException type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_response'>response</span>
@@ -548,7 +532,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr  4 01:33:55 2022 by
+  Generated on Fri Apr  8 00:40:24 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

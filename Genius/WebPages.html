@@ -267,20 +267,6 @@
     <li>
       
       
-        <span class='type'>(<tt>CloudflareError</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>if Cloudflare is not responding.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-      
         <span class='type'>(<tt>TokenError</tt>)</span>
       
       
@@ -300,6 +286,7 @@
       <pre class="lines">
 
 
+26
 27
 28
 29
@@ -307,14 +294,13 @@
 31
 32
 33
-34
-35</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/web_pages.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/web_pages.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lookup'>lookup</span><span class='lparen'>(</span><span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_options_helper'><span class='object_link'><a href="../top-level-namespace.html#options_helper-instance_method" title="#options_helper (method)">options_helper</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>raw_annotatable_url</span><span class='words_sep'> </span><span class='tstring_content'>canonical_url</span><span class='words_sep'> </span><span class='tstring_content'>og_url</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span>
@@ -332,7 +318,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr  4 01:33:55 2022 by
+  Generated on Fri Apr  8 00:40:24 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

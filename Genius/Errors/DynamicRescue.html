@@ -225,20 +225,18 @@
       <pre class="lines">
 
 
-161
-162
-163
-164
-165
-166</pre>
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='kw'>rescue</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='const'>DynamicRescue</span><span class='period'>.</span><span class='id identifier rubyid_rescue_from'>rescue_from</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_singleton_methods'>singleton_methods</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="GeniusExceptionSuperClass.html" title="Genius::Errors::GeniusExceptionSuperClass (class)">GeniusExceptionSuperClass</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_e'>e</span><span class='op'>|</span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error description: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_msg'>msg</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Exception type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error description: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_msg'>msg</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nException type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_exception_type'>exception_type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -353,21 +351,21 @@
       <pre class="lines">
 
 
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155</pre>
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rescue_from'>rescue_from</span><span class='lparen'>(</span><span class='id identifier rubyid_meths'>meths</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_exception'>exception</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_handler'>handler</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_meths'>meths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_meth'>meth</span><span class='op'>|</span>
@@ -391,7 +389,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr  4 01:33:55 2022 by
+  Generated on Fri Apr  8 00:40:24 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

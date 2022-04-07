@@ -147,7 +147,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Errors/CloudflareError.html" title="Genius::Errors::CloudflareError (class)">CloudflareError</a></span>, <span class='object_link'><a href="Errors/GeniusExceptionSuperClass.html" title="Genius::Errors::GeniusExceptionSuperClass (class)">GeniusExceptionSuperClass</a></span>, <span class='object_link'><a href="Errors/LyricsNotFoundError.html" title="Genius::Errors::LyricsNotFoundError (class)">LyricsNotFoundError</a></span>, <span class='object_link'><a href="Errors/PageNotFound.html" title="Genius::Errors::PageNotFound (class)">PageNotFound</a></span>, <span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Errors/GeniusExceptionSuperClass.html" title="Genius::Errors::GeniusExceptionSuperClass (class)">GeniusExceptionSuperClass</a></span>, <span class='object_link'><a href="Errors/LyricsNotFoundError.html" title="Genius::Errors::LyricsNotFoundError (class)">LyricsNotFoundError</a></span>, <span class='object_link'><a href="Errors/PageNotFound.html" title="Genius::Errors::PageNotFound (class)">PageNotFound</a></span>, <span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span>
     
   
 </p>
@@ -331,21 +331,21 @@
       <pre class="lines">
 
 
-179
-180
-181
-182
-183
-184
-185
-186
-187</pre>
+155
+156
+157
+158
+159
+160
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 179</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check_status'>check_status</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
-  <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='int'>64</span> <span class='op'>||</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='int'>64</span> <span class='op'>||</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#ENDPOINT-constant" title="Genius::Errors::ENDPOINT (constant)">ENDPOINT</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token'>token</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span> <span class='kw'>unless</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>status</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -458,27 +458,29 @@
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221
-222</pre>
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_handle'>error_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>method_name:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Errors/TokenError.html#initialize-instance_method" title="Genius::Errors::TokenError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>msg:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Token is required for this method. Please, add token via </span><span class='tstring_end'>&quot;</span></span> \
                                                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`Genius::Auth.login=``token&#39;&#39;` method and continue</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
                          <span class='label'>method_name:</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='int'>64</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_check_status'>check_status</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='int'>64</span> <span class='op'>||</span> <span class='id identifier rubyid_check_status'>check_status</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Errors/TokenError.html" title="Genius::Errors::TokenError (class)">TokenError</a></span></span><span class='comma'>,</span> <span class='label'>method_name:</span> <span class='id identifier rubyid_method_name'>method_name</span>
   <span class='kw'>end</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -490,7 +492,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr  4 01:33:55 2022 by
+  Generated on Fri Apr  8 00:40:24 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>
