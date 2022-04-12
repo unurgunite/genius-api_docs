@@ -129,7 +129,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p><code>Genius::Account.account</code>        -&gt; value.</p>
+<p><code>Genius::Account.account</code>                     -&gt; value.</p>
 </div></span>
   
 </li>
@@ -168,7 +168,7 @@
   </div>
 
 
-<p><code>Genius::Account.account</code>        -&gt; value</p>
+<p><code>Genius::Account.account</code>                     -&gt; value</p>
 
 <p>An alias to <span class='object_link'><a href="#account-class_method" title="Genius::Account.account (method)">me</a></span> method</p>
 
@@ -278,8 +278,8 @@
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://api.genius.com/account?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
 
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://api.genius.com/account?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -292,7 +292,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  8 00:59:38 2022 by
+  Generated on Tue Apr 12 22:35:21 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

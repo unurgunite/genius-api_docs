@@ -112,7 +112,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#annotations-class_method" title="annotations (class method)">.<strong>annotations</strong>(id:, action: nil, token: nil, http_verb: &quot;get&quot;, options: {})  &#x21d2; nil </a>
+      <a href="#annotations-class_method" title="annotations (class method)">.<strong>annotations</strong>(id:, action:, token:, http_verb: &quot;get&quot;, options: {})  &#x21d2; nil </a>
     
 
     
@@ -127,31 +127,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p><code>Genius::Annotations.annotations</code>              -&gt; true or false.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#post_payload-class_method" title="post_payload (class method)">.<strong>post_payload</strong>(options: {})  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p><code>Genius::Annotations.post_payload</code>              -&gt; value.</p>
+<p><code>Genius::Annotations.annotations</code>             -&gt; true or false.</p>
 </div></span>
   
 </li>
@@ -169,7 +145,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="annotations-class_method">
   
-    .<strong>annotations</strong>(id:, action: nil, token: nil, http_verb: &quot;get&quot;, options: {})  &#x21d2; <tt>nil</tt> 
+    .<strong>annotations</strong>(id:, action:, token:, http_verb: &quot;get&quot;, options: {})  &#x21d2; <tt>nil</tt> 
   
 
   
@@ -178,7 +154,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p><code>Genius::Annotations.annotations</code>              -&gt; true or false</p>
+<p><code>Genius::Annotations.annotations</code>             -&gt; true or false</p>
 
 <p><tt>GET /annotations/:id</tt><br> Data for a specific annotation.</p>
 
@@ -363,8 +339,6 @@ raw_annotatable_url: &quot;https://example.com&quot;)
         <span class='type'>(<tt>Object</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
@@ -380,8 +354,6 @@ raw_annotatable_url: &quot;https://example.com&quot;)
       
         <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -614,287 +586,18 @@ raw_annotatable_url: &quot;https://example.com&quot;)
 151
 152
 153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175</pre>
+154</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 147</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_annotations'>annotations</span><span class='lparen'>(</span><span class='label'>id:</span><span class='comma'>,</span> <span class='label'>action:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>http_verb:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_annotations'>annotations</span><span class='lparen'>(</span><span class='label'>id:</span><span class='comma'>,</span> <span class='label'>action:</span><span class='comma'>,</span> <span class='label'>token:</span><span class='comma'>,</span> <span class='label'>http_verb:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>only PUT accepts `action` param</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_http_verb'>http_verb</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>put</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_action'>action</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-  <span class='id identifier rubyid_actions'>actions</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>upvote</span><span class='words_sep'> </span><span class='tstring_content'>downvote</span><span class='words_sep'> </span><span class='tstring_content'>unvote</span><span class='tstring_end'>]</span></span>
-
-  <span class='kw'>case</span> <span class='id identifier rubyid_http_verb'>http_verb</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get</span><span class='tstring_end'>&quot;</span></span>
-    <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/annotations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span>
-    <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/annotations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                  <span class='label'>body:</span> <span class='id identifier rubyid_post_payload'>post_payload</span><span class='lparen'>(</span><span class='label'>options:</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>put</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>case</span> <span class='id identifier rubyid_action'>action</span>
-    <span class='kw'>when</span> <span class='kw'>nil</span>
-      <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/annotations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_action'>action</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                   <span class='label'>body:</span> <span class='id identifier rubyid_post_payload'>post_payload</span><span class='lparen'>(</span><span class='label'>options:</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>upvote</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>downvote</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unvote</span><span class='tstring_end'>&quot;</span></span>
-      <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/annotations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_action'>action</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid value for `action` param. Allowed values are: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actions'>actions</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>delete</span><span class='tstring_end'>&quot;</span></span>
-    <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/annotations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Something bad happened...</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="post_payload-class_method">
-  
-    .<strong>post_payload</strong>(options: {})  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p><code>Genius::Annotations.post_payload</code>              -&gt; value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>options</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Options for PUT response.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  
-    
-    
-    <p class="tag_title">Options Hash (<tt>options:</tt>):</p>
-    <ul class="option">
-      
-        <li>
-          <span class="name">:markdown</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The text for the note, in <a href="https://help.github.com/articles/github-flavored-markdown/">markdown</a></p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:raw_annotatable_url</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The original URL of the page.</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:fragment</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The highlighted fragment.</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:before_html</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The HTML before the highlighted fragment (prefer up to 200 characters).</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:after_html</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The HTML after the highlighted fragment (prefer up to 200 characters).</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:canonical_url</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The href property of the <code>&lt;link rel=&quot;canonical&quot;&gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:og_url</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The content property of the <code>&lt;meta property=&quot;og:url&quot;&gt;</code> tag on the page. Including it will help make sure newly created annotation appear on the correct page.</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:title</span>
-          <span class="type">(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The title of the page.</p>
-</div>
-          
-        </li>
-      
-    </ul>
-  
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Object</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/annotations.rb', line 192</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_post_payload'>post_payload</span><span class='lparen'>(</span><span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='lbrace'>{</span>
-    <span class='label'>annotation:</span> <span class='lbrace'>{</span>
-      <span class='label'>body:</span> <span class='lbrace'>{</span>
-        <span class='label'>markdown:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:markdown</span><span class='rbracket'>]</span>
-      <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='label'>referent:</span> <span class='lbrace'>{</span>
-      <span class='label'>raw_annotatable_url:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:raw_annotatable_url</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='label'>fragment:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:fragment</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='label'>context_for_display:</span> <span class='lbrace'>{</span>
-        <span class='label'>before_html:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:before_html</span><span class='rbracket'>]</span><span class='comma'>,</span>
-        <span class='label'>after_html:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:after_html</span><span class='rbracket'>]</span>
-      <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='label'>web_page:</span> <span class='lbrace'>{</span>
-      <span class='label'>canonical_url:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:canonical_url</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='label'>og_url:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:og_url</span><span class='rbracket'>]</span><span class='comma'>,</span>
-      <span class='label'>title:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span>
-    <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+  <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>action:</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='label'>token:</span> <span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>http_verb:</span> <span class='id identifier rubyid_http_verb'>http_verb</span><span class='comma'>,</span> <span class='label'>options:</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -906,7 +609,7 @@ raw_annotatable_url: &quot;https://example.com&quot;)
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  8 00:59:38 2022 by
+  Generated on Tue Apr 12 22:35:21 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

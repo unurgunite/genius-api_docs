@@ -336,9 +336,9 @@
       <pre class="code"><span class="info file"># File 'lib/genius/api/errors.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>msg:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Page not found. Try again with another response</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>exception_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_not_found</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='ivar'>@msg</span> <span class='op'>=</span> <span class='id identifier rubyid_msg'>msg</span>
   <span class='ivar'>@exception_type</span> <span class='op'>=</span> <span class='id identifier rubyid_exception_type'>exception_type</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_msg'>msg</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -538,7 +538,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  8 00:59:38 2022 by
+  Generated on Tue Apr 12 22:35:21 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>

@@ -138,7 +138,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p><code>Genius::Songs.get_lyrics</code>      -&gt; hash.</p>
+<p><code>Genius::Songs.get_lyrics</code>                    -&gt; hash.</p>
 </div></span>
   
 </li>
@@ -162,7 +162,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p><code>Genius::Songs.songs</code>     -&gt; value.</p>
+<p><code>Genius::Songs.songs</code>                         -&gt; value.</p>
 </div></span>
   
 </li>
@@ -181,7 +181,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Errors.html#check_status-class_method" title="Genius::Errors.check_status (method)">check_status</a></span>, <span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -200,7 +200,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p><code>Genius::Songs.get_lyrics</code>      -&gt; hash</p>
+<p><code>Genius::Songs.get_lyrics</code>                    -&gt; hash</p>
 
 <p><code>Genius::Songs.get_lyrics</code> method is used for extracting lyrics in plain text format</p>
 
@@ -267,7 +267,6 @@
       <pre class="lines">
 
 
-59
 60
 61
 62
@@ -276,10 +275,11 @@
 65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_lyrics'>get_lyrics</span><span class='lparen'>(</span><span class='id identifier rubyid_song_id'>song_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`song_id` should be not blank!</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_song_id'>song_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -308,7 +308,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p><code>Genius::Songs.songs</code>     -&gt; value</p>
+<p><code>Genius::Songs.songs</code>                         -&gt; value</p>
 
 <p>This method provides info about song by its id. It is not the same with <code>Genius::Search.search</code> method, because it modify a <code>JSON</code> only for concrete song id, not for whole search database, which is returned in <code>Genius::Search.search</code>.</p>
 
@@ -490,13 +490,15 @@
 48
 49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/genius/api/songs.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_songs'>songs</span><span class='lparen'>(</span><span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>song_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>combine:</span> <span class='kw'>false</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='lparen'>(</span><span class='label'>method_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_nesting'>nesting</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
   <span class='const'><span class='object_link'><a href="Errors.html" title="Genius::Errors (module)">Errors</a></span></span><span class='period'>.</span><span class='id identifier rubyid_error_handle'><span class='object_link'><a href="Errors.html#error_handle-class_method" title="Genius::Errors.error_handle (method)">error_handle</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Api.html" title="Genius::Api (module)">Api</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Api.html#RESOURCE-constant" title="Genius::Api::RESOURCE (constant)">RESOURCE</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/songs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_song_id'>song_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -532,7 +534,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  8 00:59:38 2022 by
+  Generated on Tue Apr 12 22:35:21 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.2).
 </div>
