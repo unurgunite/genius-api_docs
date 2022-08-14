@@ -6,7 +6,7 @@
 <title>
   Module: Genius::Referents
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -249,7 +249,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>ID of a web page to get referents for</p>
+<p>ID of a web page to get referents for.</p>
 </div>
           
         </li>
@@ -262,7 +262,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>ID of a song to get referents for</p>
+<p>ID of a song to get referents for.</p>
 </div>
           
         </li>
@@ -275,7 +275,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Number of results to return per request</p>
+<p>Number of results to return per request.</p>
 </div>
           
         </li>
@@ -288,7 +288,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Paginated offset, (e.g., <code>per_page=5&amp;page=3</code> returns songs 11-15)</p>
+<p>Paginated offset, (e.g., <code>per_page=5&amp;page=3</code> returns songs 11-15).</p>
 </div>
           
         </li>
@@ -348,22 +348,22 @@
       <pre class="lines">
 
 
-28
-29
-30
-31
-32
-33
-34
-35
-36
 37
 38
 39
-40</pre>
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/genius/api/referents.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/genius/api/referents.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_referents'>referents</span><span class='lparen'>(</span><span class='label'>token:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>options:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'><span class='object_link'><a href="Auth.html" title="Genius::Auth (module)">Auth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_authorized?'><span class='object_link'><a href="Auth.html#authorized%3F-class_method" title="Genius::Auth.authorized? (method)">authorized?</a></span></span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -373,9 +373,9 @@
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You may pass only one of song_id and web_page_id, not both!</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_options_helper'><span class='object_link'><a href="../top-level-namespace.html#options_helper-instance_method" title="#options_helper (method)">options_helper</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>created_by_id</span><span class='words_sep'> </span><span class='tstring_content'>text_format</span><span class='words_sep'> </span><span class='tstring_content'>per_page</span><span class='words_sep'> </span><span class='tstring_content'>page</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_options_helper'>options_helper</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>created_by_id</span><span class='words_sep'> </span><span class='tstring_content'>text_format</span><span class='words_sep'> </span><span class='tstring_content'>per_page</span><span class='words_sep'> </span><span class='tstring_content'>page</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#ENDPOINT-constant" title="Genius::Referents::ENDPOINT (constant)">ENDPOINT</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'><span class='object_link'><a href="../top-level-namespace.html#token_ext-instance_method" title="#token_ext (method)">token_ext</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params'>params</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>HTTParty</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#ENDPOINT-constant" title="Genius::Referents::ENDPOINT (constant)">ENDPOINT</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>?access_token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token_ext'>token_ext</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params'>params</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -388,9 +388,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Apr 12 22:35:21 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.2).
+  Generated on Sun Aug 14 22:05:29 2022 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-2.7.6).
 </div>
 
     </div>
