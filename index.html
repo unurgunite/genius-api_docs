@@ -117,10 +117,10 @@
 <p>The manual installation includes installation via command line interface. it is practically no different from what happens during the automatic build of the project:</p>
 
 <pre class="code ruby"><code class="ruby">git clone https://github.com/unurgunite/genius-api.git &amp;&amp; \
-cd ~/genius-api &amp;&amp; \
+cd genius-api &amp;&amp; \
 bundle install &amp;&amp; \
 gem build genius-api.gemspec &amp;&amp; \
-gem install genius-api-0.2.0.gem
+gem install genius-api-0.2.1.gem
 </code></pre>
 
 <p>Now everything should work fine. Just type <code>irb</code> and <code>require &quot;genius/api&quot;</code> to start working with the library</p>
@@ -130,7 +130,7 @@ gem install genius-api-0.2.0.gem
 <p>The automatic installation is simpler but it has at least same steps as manual installation:</p>
 
 <pre class="code ruby"><code class="ruby">git clone https://github.com/unurgunite/genius-api.git &amp;&amp; \
-cd ~/genius-api &amp;&amp; \
+cd genius-api &amp;&amp; \
 bin/setup
 </code></pre>
 
@@ -184,50 +184,14 @@ bin/setup
 <h3 id="label-Common+use">Common use</h3>
 
 <p>The <code>genius-api</code> gem is built on top of two other gems:</p>
-<ol><li>
-<p><a href="https://rubygems.org/gems/httparty">HTTParty</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/nokogiri">Nokogiri</a></p>
-</li></ol>
 
-<p>Description:</p>
-<ul><li>
-<p>The HTTParty gem is used to send requests to the REST client of the <a href="https://api.genius.com">api.genius.com</a>/.</p>
-</li><li>
-<p>The Nokogiri gem is used to represent XML objects as Ruby structures.</p>
-</li></ul>
+<p>| Dependencies | Description | |—————–|———————————————————————————————| | <a href="https://rubygems.org/gems/httparty">HTTParty</a> | The HTTParty gem is used to send requests to the REST client of the <a href="https://api.genius.com">api.genius.com</a>/ | | <a href="https://rubygems.org/gems/nokogiri">Nokogiri</a> | The Nokogiri gem is used to represent XML objects as Ruby structures. |</p>
 
 <h3 id="label-Development+purposes">Development purposes</h3>
 
 <p>For the development purposes <code>genius-api</code> gem uses:</p>
-<ol><li>
-<p><a href="https://rubygems.org/gems/rspec">RSpec</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/rubocop">RuboCop</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/rake">Rake</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/dotenv">Dotenv</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/coderay">Coderay</a></p>
-</li><li>
-<p><a href="https://rubygems.org/gems/yard">YARD</a></p>
-</li></ol>
 
-<p>Description:</p>
-<ul><li>
-<p>The RSpec gem is used for test which are located in a separate folder under <code>spec</code> name.</p>
-</li><li>
-<p>The RuboCop gem is used for code formatting.</p>
-</li><li>
-<p>The Rake gem is used for building tasks as generating documentation.</p>
-</li><li>
-<p>The Dotenv gem is used for setting variables for test environment (<code>token</code>, for e.g.).</p>
-</li><li>
-<p>The Coderay gem is used for colorizing Rspec output.</p>
-</li><li>
-<p>The YARD gem is used for the documentation.</p>
-</li></ul>
+<p>| Dependencies | Description | |—————-|——————————————————————————————| | <a href="https://rubygems.org/gems/rspec">RSpec</a> | The RSpec gem is used for test which are located in a separate folder under <code>spec</code> name. | | <a href="https://rubygems.org/gems/rubocop">RuboCop</a> | The RuboCop gem is used for code formatting. | | <a href="https://rubygems.org/gems/rake">Rake</a> | The Rake gem is used for building tasks as generating documentation. | | <a href="https://rubygems.org/gems/dotenv">Dotenv</a> | The Dotenv gem is used for setting variables for test environment (<code>token</code>, for e.g.). | | <a href="https://rubygems.org/gems/coderay">Coderay</a> | The Coderay gem is used for colorizing Rspec output. | | <a href="https://rubygems.org/gems/yard">YARD</a> | The YARD gem is used for the documentation. |</p>
 
 <h2 id="label-Project+style+guide">Project style guide</h2>
 
@@ -261,7 +225,7 @@ git push origin refactor
 </div></div>
 
       <div id="footer">
-  Generated on Mon Aug 15 18:43:15 2022 by
+  Generated on Thu Jan 26 11:28:40 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.6).
 </div>
